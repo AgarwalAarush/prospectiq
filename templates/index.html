@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prospect IQ Sign Up</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f8f8f8;
+        }
+        .container {
+            display: flex;
+            max-width: 90%;
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .left-section {
+            padding: 60px;
+            width: 40%;
+            animation: fadeInLeft 1.5s ease-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .left-section h1 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeInLeft 2s ease-out forwards;
+        }
+        .left-section a {
+            text-decoration: none;
+        }
+        .left-section button {
+            padding: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .left-section button:hover {
+            background-color: #f0f0f0;
+        }
+        .left-section button img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+        .right-section {
+            width: 60%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+        }
+        
+        /* Main styling for cycling messages */
+        .footer-text {
+            color: white;
+            font-size: 30px;
+            text-align: center;
+            font-weight: bold;
+            position: absolute;
+            opacity: 0;
+            animation: fadeCycle 6s infinite;
+        }
+        
+        /* Set each message with a delay */
+        .footer-text:nth-child(1) { animation-delay: 0s; }
+        .footer-text:nth-child(2) { animation-delay: 2s; }
+        .footer-text:nth-child(3) { animation-delay: 4s; }
+
+        /* Fade-in and fade-out cycle animation */
+        @keyframes fadeCycle {
+            0%, 30%, 100% { opacity: 0; }
+            10%, 15% { opacity: 1; }
+        }
+
+        /* Fade-in animation for left section */
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Left Section: Sign-In Button -->
+    <div class="left-section">
+        <h1>Welcome to ProspectIQ</h1>
+        <!-- Link to the Google authentication route -->
+        <a href="{{ url_for('google') }}">
+            <button>
+                <img src="{{ url_for('static', filename='google.png') }}" alt="Google logo">
+                Sign in with Google
+            </button>
+        </a>
+    </div>
+
+    <!-- Right Section: Gradient Background with Fade-In Cycling Text -->
+    <div class="right-section">
+        <div class="footer-text">Find Your Best Fit</div>
+        <div class="footer-text">Optimize Your Business</div>
+        <div class="footer-text">Write Your Best Emails</div>
+    </div>
+</div>
+
+</body>
+</html>
+
+

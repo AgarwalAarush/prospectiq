@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProspectIQ - Main</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            margin: 0;
+            display: flex;
+            background-color: #f8f8f8;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 250px;
+            background-color: #ffffff;
+            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            padding-top: 20px;
+        }
+
+        .sidebar h2 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .nav-link {
+            padding: 15px 20px;
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background-color: #e0f7fa;
+            font-weight: bold;
+        }
+
+        /* Main Content Styling */
+        .main-content {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            background-color: #e8f0fe;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Header Styling */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        /* Card Styling */
+        .content {
+            display: flex;
+            width: 100%;
+            gap: 20px;
+        }
+        .metric-card {
+            background-color: #dff1ec;
+            color: #1d7044;
+            padding: 20px;
+            border-radius: 12px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .metric-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .metric-value {
+            font-size: 32px;
+            font-weight: bold;
+        }
+        .metric-item {
+            font-size: 16px;
+            color: #333;
+        }
+        .data-summary-btn {
+            color: #1d7044;
+            text-decoration: underline;
+            font-size: 14px;
+        }
+
+        /* Email Content Styling */
+        .email-editor {
+            background-color: #e8e9ff;
+            color: #4c4c9b;
+            padding: 20px;
+            border-radius: 12px;
+            flex: 2;
+            font-size: 16px;
+            line-height: 1.5;
+            outline: none;
+        }
+        .email-content p,
+        .email-content ul {
+            margin: 10px 0;
+        }
+        .send-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4c4c9b;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            align-self: flex-end;
+        }
+        .send-button:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>ProspectIQ</h2>
+    <a href="{{ url_for('main') }}" class="nav-link">Main</a>
+    <a href="{{ url_for('recs') }}" class="nav-link active">Recs</a>
+</div>
+
+<div class="main-content">
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <h1>Startup Pitch</h1>
+        </div>
+
+        <!-- Content Section with Metrics and Email -->
+        <div class="content">
+            <!-- Left Side: Metrics -->
+            <div class="metric-card">
+                <div class="metric-title">Metrics</div>
+                <div class="metric-item">Annual Revenue: $5M</div>
+                <div class="metric-item">Number of Employees: 50</div>
+                <div class="metric-item">Industry: Technology</div>
+                <div class="metric-item">Location: San Francisco, CA</div>
+                <div class="metric-item">Size: Small Startup (within 5 years)</div>
+            </div>
+
+            <!-- Right Side: Email Content -->
+            <div class="email-editor" contenteditable="true">
+                <div class="email-content">
+                    <p>Dear Team,</p>
+                    <p>Here is the latest update on our key metrics:</p>
+                    <ul>
+                        <li>Annual Revenue: $5M</li>
+                        <li>Number of Employees: 50</li>
+                        <li>Industry: Technology</li>
+                        <li>Location: San Francisco, CA</li>
+                        <li>Size: Small Startup (within 5 years)</li>
+                    </ul>
+                    <p>Best regards,</p>
+                    <p>[Your Name]</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Send Button -->
+        <button class="send-button">Send</button>
+    </div>
+</div>
+
+</body>
+</html>

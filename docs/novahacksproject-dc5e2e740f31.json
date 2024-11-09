@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "novahacksproject",
+  "private_key_id": "dc5e2e740f31af3566356d46376927bad4c8c1cb",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDGbprFRg49BGfG\nLe+myAUbg4I+scetES4BT3UBKHYwgoVKbiA91BTNAinulV1TcLWUCr4i7J0aQaI7\n6Zv1FoubTLfgmHwsPjvlOgGB91KCUtKyvawq2Es5O/n4IBHqTQVdRi6+FVVyAf+4\n8yWLKiFA2wV5gosbn/rx6RgAxx1CMslisgzrIr02DudUgcakdzv0BR90MwSnQ3GS\nK46a7xyBVAnOlPR0ZWfvGmyzMX/wV3qy6N9Jdgw+eFZy8QY1yYHVxqz+N3av3oUV\niEhX9x8AmIU6oc2dKwyMTMhYXuLVSL+T5ZihtuDCLUD5X//9Qb1ZmndWihQS924K\nX8e9gnSFAgMBAAECggEAAd1tQNhkxDKZPDJQN1oCdWPoMNr8xyl15Sx61fs6bSO8\nAjCSqnIYcJ5fa7062+0twXt+XWzi3/8hzycewIHh53XOvNRef7plV5p2WX+hgvG3\nxnOA6DyfniUIxZEPJn1rKIs07dAVoMcRQQroa7N4KjS2i2dP90ZVefKt8Fm11hNd\n+zFcttFQJAPsHGVjKzIUIizbTw0qI+VnPV2DgeFufN7FfqcGD3pP4pdy30XLcn6f\nqWLOuhucIbm+91ZRqmJIjwPQLgSGcyTdKR5kwNbVxi2sMqtgHukFuAv3ImUPkHkW\nW38Gnj3dzLJ4JK6kZIf50oD80t2i42SqtvjyJ72WOwKBgQDzA+sJQaQqcAfklgKD\nYFxKAbK3Zi+Tb4CjS4MuMZHQJ8FXdAeYRHJM90ET2xiS5KMw0sx27PZhXLt2NlQ9\nN9t5cfIhkRzO8bgOy+f9OvvEWkkOfk92fUhf1he7Z/AsRnb83XHkcBv2wgQOnUQy\nz9IdvdeRnc0sAUK6/7+NzF6V1wKBgQDRCNrdQf5HaNUnI+7C09SpG3MQARIp0jFO\nA6kNj+GLNtpsrSNJvNotx8xcxRIvQ2oO5jg1FxyI0rAM7YCu7mNmivmdn0k909Ei\nCf2JzGgnXGXjt6B+xFfNofMrIUGWxZhn7xI9POEo/LN6/AcJEglZWoqhEQFDWuy9\niSmDYiKFAwKBgG/GnZTkXF4oqXi6hu1mpQxlO46fscJexwxU70GQC0FzB7rx44xl\n7yz3jTdUzzjBcU5Dp0gMNkcSICd/Vb/SsWBqyLQnythk1gP4Rfxz5NmrrW69Kk+V\n0HRERSYt6Ip03sXwFTK9Xh9hnfwa2gOFE2AascyIiJZ0/fyFJdZS6i6BAoGAKnz7\nR6fnUIp9cPQ7zrwR6MGclK8zCu8feHUEAq6xMIPYx+g1WQKa8l0/K8ge1x6Dyz1+\nRURKV4FDqY0I8AWijLBI5oH++CM6yglv0HeM4BtG1o93fuzX0ANQEv8yfrvxK4cL\nlQjv103uCVx67ZwN7Gyb6vsy34b2wdvEZWEoFRMCgYEAhdhVE6Otal26DgioK+y+\nuppc2Owk8l59JvvHJdq9FB6K78cOoxY7VQZTkjaNkVunJheH+3bTOYYYP4eYaZY1\nBxRpIPVK14mujP8FZNXS2GDOA3atm0SLQzIeCd0sLfJVz+scYANIH6Pt0zm1DCBn\nANWWVuiFtijwHeoqrYdi+Ds=\n-----END PRIVATE KEY-----\n",
+  "client_email": "prospectiq@novahacksproject.iam.gserviceaccount.com",
+  "client_id": "117060304181078539173",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/prospectiq%40novahacksproject.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
