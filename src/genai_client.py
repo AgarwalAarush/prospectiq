@@ -11,7 +11,7 @@ class GenAIClient:
     # prompt for market research - "You are a market researcher that looks for companies that startups can reach out to and sell their product to."
 
     def get_completions_openai(self, prompt, description):
-        with open("key.txt") as f:
+        with open("key.txt", "r") as f:
             api_key = f.read()
         client = OpenAI(api_key=api_key, base_url=self.PROXY_ENDPOINT)
         response = client.chat.completions.create(
