@@ -1,6 +1,6 @@
 import re, json
-from read_emails import ReadEmails
-from genai_client import GenAIClient
+from src.read_emails import ReadEmails
+from src.genai_client import GenAIClient
 
 class EmailGenerator:
     def __init__(self) -> None:

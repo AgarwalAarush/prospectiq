@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProspectIQ - Main</title>
+    <title>ProspectIQ - Recommendations</title>
     <style>
+        /* General styling */
         * {
             box-sizing: border-box;
             font-family: Arial, sans-serif;
@@ -68,9 +69,29 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            position: relative;
         }
 
-        /* Header Styling */
+        /* Card Navigation Styling */
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            cursor: pointer;
+            color: #4c4c9b;
+        }
+        .nav-arrow:hover {
+            color: #333;
+        }
+        .left-arrow {
+            left: 10px;
+        }
+        .right-arrow {
+            right: 10px;
+        }
+
+        /* Card Styling */
         .header {
             text-align: center;
             margin-bottom: 30px;
@@ -81,7 +102,6 @@
             margin: 0;
         }
 
-        /* Card Styling */
         .content {
             display: flex;
             width: 100%;
@@ -101,21 +121,10 @@
             font-size: 18px;
             font-weight: bold;
         }
-        .metric-value {
-            font-size: 32px;
-            font-weight: bold;
-        }
         .metric-item {
             font-size: 16px;
             color: #333;
         }
-        .data-summary-btn {
-            color: #1d7044;
-            text-decoration: underline;
-            font-size: 14px;
-        }
-
-        /* Email Content Styling */
         .email-editor {
             background-color: #e8e9ff;
             color: #4c4c9b;
@@ -124,11 +133,6 @@
             flex: 2;
             font-size: 16px;
             line-height: 1.5;
-            outline: none;
-        }
-        .email-content p,
-        .email-content ul {
-            margin: 10px 0;
         }
         .send-button {
             margin-top: 20px;
@@ -157,45 +161,85 @@
 
 <div class="main-content">
     <div class="container">
-        <!-- Header Section -->
+        <!-- Navigation Arrows -->
+        <div class="nav-arrow left-arrow" onclick="previousCompany()">&larr;</div>
+        <div class="nav-arrow right-arrow" onclick="nextCompany()">&rarr;</div>
+
+        <!-- Content will be populated here by JavaScript -->
         <div class="header">
-            <h1>Startup Pitch</h1>
+            <h1 id="company-name">Startup Pitch</h1>
         </div>
 
-        <!-- Content Section with Metrics and Email -->
         <div class="content">
-            <!-- Left Side: Metrics -->
             <div class="metric-card">
                 <div class="metric-title">Metrics</div>
-                <div class="metric-item">Annual Revenue: $5M</div>
-                <div class="metric-item">Number of Employees: 50</div>
-                <div class="metric-item">Industry: Technology</div>
-                <div class="metric-item">Location: San Francisco, CA</div>
-                <div class="metric-item">Size: Small Startup (within 5 years)</div>
+                <div id="metrics"></div>
             </div>
 
-            <!-- Right Side: Email Content -->
-            <div class="email-editor" contenteditable="true">
-                <div class="email-content">
-                    <p>Dear Team,</p>
-                    <p>Here is the latest update on our key metrics:</p>
-                    <ul>
-                        <li>Annual Revenue: $5M</li>
-                        <li>Number of Employees: 50</li>
-                        <li>Industry: Technology</li>
-                        <li>Location: San Francisco, CA</li>
-                        <li>Size: Small Startup (within 5 years)</li>
-                    </ul>
-                    <p>Best regards,</p>
-                    <p>[Your Name]</p>
-                </div>
+            <div class="email-editor" id="email-content">
+                <p>Dear Team,</p>
             </div>
         </div>
 
-        <!-- Send Button -->
         <button class="send-button">Send</button>
     </div>
 </div>
+
+<script>
+    let currentCompanyIndex = 0;
+
+    // Injected companies data from Flask
+    const companies = {{ companiesData | safe }};
+
+    function formatCompanyData(companyText) {
+        // Convert \n to <br> and split into lines
+        return companyText
+            .split('\n')
+            .filter(line => line.trim())
+            .map(line => `<div class="metric-item">${line}</div>`)
+            .join('');
+    }
+
+    function formatEmailContent(emailText) {
+        // Convert \n to <br> for email content
+        return emailText
+            .split('\n')
+            .filter(line => line.trim())
+            .map(line => `<div class="email-line">${line}</div>`)
+            .join('');
+    }
+
+    function updateContent() {
+        const company = companies[currentCompanyIndex];
+
+        document.getElementById("company-name").innerText = "Company: " + (currentCompanyIndex + 1);
+        
+        // Update company info
+        document.getElementById("metrics").innerHTML = formatCompanyData(company.company);
+        
+        // Update email content
+        document.getElementById("email-content").innerHTML = formatEmailContent(company.email);
+    }
+
+    function previousCompany() {
+        if (currentCompanyIndex > 0) {
+            currentCompanyIndex--;
+            updateContent();
+        }
+        console.log("Previous company:", currentCompanyIndex);
+    }
+
+    function nextCompany() {
+        if (currentCompanyIndex < companies.length - 1) {
+            currentCompanyIndex++;
+            updateContent();
+        }
+        console.log("Next company:", currentCompanyIndex);
+    }
+
+    // Initialize content with the first company
+    updateContent();
+</script>
 
 </body>
 </html>

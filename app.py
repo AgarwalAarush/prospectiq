@@ -5,6 +5,8 @@ import json
 import os
 import uuid
 
+from src.email_generation import EmailGenerator
+
 app = Flask(__name__)
 app.logger.setLevel(logging.DEBUG)
 app.secret_key = os.urandom(12)
@@ -18,10 +20,6 @@ def index():
 @app.route('/main')
 def main():
     return render_template('main.html')  # This renders the main.html page in the templates folder
-
-@app.route('/recs')
-def recs():
-    return render_template('recs.html')  # This renders the main.html page in the templates folder
 
 @app.route('/google/')
 def google():
@@ -58,6 +56,14 @@ def google_auth():
     print("Google User", user)
     return redirect(url_for('main'))
 
+@app.route('/recs')
+def recs():
+    # Load data from JSON file
+    with open('data/backend_output.json') as json_file:
+        data = json.load(json_file)
+    return render_template('recs.html', companiesData=json.dumps(data))  # Convert data to JSON string
+
+
 # Route to handle form submission
 @app.route('/save_data', methods=['POST'])
 def save_data():
@@ -78,18 +84,20 @@ def save_data():
     }
 
     # Save data to a JSON file
-    with open('backend.json', 'w') as json_file:
+    with open('data/backend_input.json', 'w') as json_file:
         json.dump(data, json_file, indent=4)
+    
+    generator = EmailGenerator()
+    generator.generate_rec_and_email()
+
+    with open('data/backend_output.json') as json_file:
+        data2 = json.load(json_file)
 
     # Redirect to a success page or render a response
-    return render_template('recs.html')
-
-@app.route('/recs')
-def recs():
-    # Load data from JSON file
-    with open('backend_output.json') as json_file:
-        data = json.load(json_file)
-    return render_template('recs.html', companies=data)
+    return render_template('recs.html', companiesData=json.dumps(data2))
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+

@@ -1,7 +1,7 @@
 {
-    "user_name": "Aarush Agarwal",
-    "user_email": "aarusha@andrew.cmu.edu",
+    "name": "Aarush Agarwal",
+    "email": "aarushaga@gmail.com",
     "company_name": "Cresta",
-    "sector": "Sales AI and More",
-    "business": "Cresta uses AI to enhance sales and customer service experiences. Their AI-based platform provides real-time insights and coaching to customer support agents, analyzing conversations as they happen to guide agents in delivering more effective responses. It improves sales conversions and customer satisfaction, making it a valuable tool in customer service and sales."
+    "company_sector": "Sales AI + More",
+    "description": "Cresta uses AI to enhance sales and customer service experiences. Their AI-based platform provides real-time insights and coaching to customer support agents, analyzing conversations as they happen to guide agents in delivering more effective responses. It improves sales conversions and customer satisfaction, making it a valuable tool in customer service and sales"
 }
